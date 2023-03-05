@@ -1,4 +1,4 @@
-init: reset-env build up composer-install app-key storage-chmod
+init: build up reset-env composer-install app-key storage-chmod
 restart: down up
 
 up:
@@ -27,3 +27,6 @@ app-shell:
 
 storage-chmod:
 	chmod -R 777 ../storage
+
+db-fresh:
+	docker-compose exec php-fpm php artisan migrate:fresh --seed
