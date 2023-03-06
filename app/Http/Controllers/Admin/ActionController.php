@@ -10,7 +10,6 @@ class ActionController extends Controller
 {
     public function getOrderActions(Request $request)
     {
-
         $orderCreation = UserAction::where('action', UserAction::ACTION_MAKE_ORDER)->search($request->all())->get();
 
         return view('admin.orders', ['orderActions' => $orderCreation]);

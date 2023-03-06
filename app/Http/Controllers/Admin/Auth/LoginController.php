@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\LoginRequest;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -14,6 +13,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
     public function showLoginForm()
     {
         if (auth('admin')) {
@@ -22,6 +22,7 @@ class LoginController extends Controller
 
         return view('admin.auth.login');
     }
+
     public function login(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
@@ -36,6 +37,7 @@ class LoginController extends Controller
     public function logout()
     {
         auth('admin')->logout();
+
         return response()->noContent();
     }
 }
