@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Auth\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -15,6 +16,10 @@ class LoginController extends Controller
     }
     public function showLoginForm()
     {
+        if (auth('admin')) {
+            return redirect('admin/home');
+        }
+
         return view('admin.auth.login');
     }
     public function login(LoginRequest $request)
