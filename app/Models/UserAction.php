@@ -9,6 +9,7 @@ class UserAction extends SearchableModel
     protected array $searchableFields = [
         'user_id',
         'description',
+        'created_at'
     ];
 
     public const ACTION_MAKE_ORDER = 'make_order';

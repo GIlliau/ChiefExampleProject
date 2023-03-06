@@ -16,8 +16,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        if (auth('admin')) {
-            return redirect('admin/home');
+        if (auth('admin')->check()) {
+            return redirect($this->redirectTo);
         }
 
         return view('admin.auth.login');

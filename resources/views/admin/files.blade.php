@@ -12,7 +12,7 @@
                         </div>
                         <div class="col">
                             <label for="exampleInputPassword1">Created at</label>
-                            <input type="datetime-local" class="form-control" name="created_at">
+                            <input type="date" class="form-control" name="created_at">
                         </div>
                         <div class="col pt-4">
                             <button type="submit" class="btn btn-primary">Submit</button>
