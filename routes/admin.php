@@ -22,5 +22,7 @@ Route::post('/login', [App\Http\Controllers\Admin\Auth\LoginController::class, '
 
 Route::group(['middleware'=>['auth:admin']], function() {
     Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+    Route::get('/action/download-file', [App\Http\Controllers\Admin\ActionController::class, 'getFileActions'])->name('admin.action.download.file');
+    Route::get('/action/create-order', [App\Http\Controllers\Admin\ActionController::class, 'getOrderActions'])->name('admin.action.create.order');
 });
 
